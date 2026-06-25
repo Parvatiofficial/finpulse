@@ -1,0 +1,32 @@
+{
+  "name": "finpulse",
+  "version": "1.0.0",
+  "description": "Enterprise FinTech B2B Digital Banking, Wallet Ledger & Invoice Factoring Platform",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "test": "node server/tests/doubleEntry.test.js && node server/tests/ledgerHash.test.js && node server/tests/idempotency.test.js && node server/tests/reconciliation.test.js && node server/tests/factoring.test.js && node server/tests/security.test.js && node server/tests/e2e.test.js",
+    "seed": "node server/utils/seedFixtures.js"
+  },
+  "keywords": [
+    "fintech",
+    "double-entry-ledger",
+    "banking",
+    "reconciliation",
+    "invoice-factoring",
+    "mern",
+    "accounting",
+    "treasury"
+  ],
+  "author": "Parvatiofficial <Parvati@trydigitalsolution.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
