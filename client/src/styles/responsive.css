@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+  .navbar-container { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  .form-row { grid-template-columns: 1fr; }
+  .enterprise-table { display: block; overflow-x: auto; }
+}
