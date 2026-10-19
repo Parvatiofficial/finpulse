@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: finpulse-api
+    restart: unless-stopped
+    ports:
+      - "5006:5006"
+    environment:
+      - PORT=5006
+      - MONGO_URI=mongodb://mongo:27017/finpulse
+      - NODE_ENV=production
+      - JWT_SECRET=finpulse-production-secret-2026
+    depends_on:
+      - mongo
+    networks:
+      - finpulse-network
+
+  mongo:
+    image: mongo:6.0-focal
+    container_name: finpulse-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - finpulse-data:/data/db
+    networks:
+      - finpulse-network
+
+networks:
+  finpulse-network:
+    driver: bridge
+
+volumes:
+  finpulse-data:
